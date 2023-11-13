@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Information</title>
+</head>
+<body>
+    <h1>IP Information</h1>
+    {% if result %}
+        <p>IPv4 Address: {{ result.ipv4 }}</p>
+        <p>IPv6 Address: {{ result.ipv6 }}</p>
+        <p>Location: {{ result.location }}</p>
+        <p>Country Code: {{ result.country_code }}</p>
+        {% if result.proxy_or_vpn %}
+            <p>This IP address is associated with a {{ result.proxy_or_vpn }}.</p>
+        {% else %}
+            <p>This IP address is not associated with a Proxy or VPN.</p>
+        {% endif %}
+    {% else %}
+        <p>An error occurred while fetching IP information.</p>
+    {% endif %}
+</body>
+</html>
